@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Norge 1945–1955</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Source+Sans+3:wght@300;400;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #F5F0E8;
+    --dark: #1A1A1A;
+    --red: #8B2500;
+    --blue: #2C4A6E;
+    --gold: #B8860B;
+    --muted: #6B6357;
+    --paper: #EDE8DC;
+    --border: #C4B9A8;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--cream);
+    font-family: 'Source Sans 3', sans-serif;
+    color: var(--dark);
+    line-height: 1.6;
+  }
+
+  .poster {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 30px;
+  }
+
+  /* HEADER */
+  .header {
+    text-align: center;
+    padding: 40px 20px 30px;
+    border-bottom: 3px solid var(--red);
+    margin-bottom: 30px;
+  }
+
+  .header h1 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 3.2rem;
+    color: var(--dark);
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+
+  .header .subtitle {
+    font-size: 1.15rem;
+    color: var(--muted);
+    font-weight: 300;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+  }
+
+  .header .tagline {
+    margin-top: 14px;
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.3rem;
+    color: var(--red);
+    font-style: italic;
+  }
+
+  /* INTRO TEXT */
+  .intro {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 28px 32px;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    line-height: 1.75;
+    column-count: 2;
+    column-gap: 32px;
+  }
+
+  .intro p { margin-bottom: 12px; }
+  .intro p:last-child { margin-bottom: 0; }
+
+  /* GRID */
+  .sources-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 30px;
+  }
+
+  .source-card {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .source-card.wide {
+    grid-column: 1 / -1;
+  }
+
+  .source-header {
+    padding: 14px 20px 10px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+  }
+
+  .source-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.6rem;
+    color: var(--red);
+    line-height: 1;
+  }
+
+  .source-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.15rem;
+    color: var(--dark);
+  }
+
+  .source-type {
+    margin-left: auto;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: var(--muted);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  .source-body {
+    padding: 18px 20px;
+    font-size: 0.88rem;
+    line-height: 1.7;
+    flex: 1;
+  }
+
+  .source-body p { margin-bottom: 10px; }
+  .source-body p:last-child { margin-bottom: 0; }
+
+  .quote {
+    border-left: 3px solid var(--gold);
+    padding-left: 16px;
+    margin: 14px 0;
+    font-style: italic;
+    color: var(--muted);
+    font-size: 0.9rem;
+    line-height: 1.65;
+  }
+
+  .source-meta {
+    padding: 10px 20px;
+    border-top: 1px solid var(--border);
+    font-size: 0.75rem;
+    color: var(--muted);
+    background: var(--paper);
+  }
+
+  .source-meta a {
+    color: var(--blue);
+    text-decoration: none;
+  }
+
+  .label {
+    display: inline-block;
+    padding: 2px 8px;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    border-radius: 2px;
+    margin-bottom: 8px;
+  }
+
+  .label-politikk { background: #D4E4F7; color: var(--blue); }
+  .label-sosial { background: #F7D4D4; color: var(--red); }
+  .label-kultur { background: #F0E6C8; color: var(--gold); }
+  .label-okonomi { background: #D4E8D4; color: #2E5E2E; }
+  .label-teknologi { background: #E0D4F0; color: #4A2E6E; }
+
+  /* SPØKT BAR */
+  .spokt {
+    background: var(--dark);
+    color: var(--cream);
+    padding: 20px 28px;
+    margin-bottom: 30px;
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+  }
+
+  .spokt-item {
+    flex: 1;
+  }
+
+  .spokt-item h4 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 0.85rem;
+    letter-spacing: 1px;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+  }
+
+  .spokt-item p {
+    font-size: 0.75rem;
+    color: #AAA49A;
+    line-height: 1.4;
+  }
+
+  /* BRUDD/KONTINUITET */
+  .reflection {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    padding: 24px 28px;
+    margin-bottom: 20px;
+  }
+
+  .reflection h3 {
+    font-family: 'DM Serif Display', serif;
+    font-size: 1.1rem;
+    color: var(--red);
+    margin-bottom: 10px;
+  }
+
+  .reflection p {
+    font-size: 0.88rem;
+    line-height: 1.7;
+  }
+
+  /* FOOTER */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 2px solid var(--red);
+    font-size: 0.78rem;
+    color: var(--muted);
+    margin-top: 10px;
+  }
+
+  @media print {
+    body { font-size: 11pt; }
+    .poster { padding: 20px; }
+    .intro { column-count: 2; }
+    .source-card { break-inside: avoid; }
+  }
+
+  @media (max-width: 700px) {
+    .sources-grid { grid-template-columns: 1fr; }
+    .intro { column-count: 1; }
+    .header h1 { font-size: 2.2rem; }
+    .spokt { flex-direction: column; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="poster">
+
+  <div class="header">
+    <div class="subtitle">Norgeshistorie &middot; Veggavis</div>
+    <h1>Norge 1945–1955</h1>
+    <div class="tagline">«Ingen får kake før alle har fått brød»</div>
+  </div>
+
+  <div class="spokt">
+    <div class="spokt-item">
+      <h4>Sosialt</h4>
+      <p>Gjenreisning, boligbygging, samisk fornorsking</p>
+    </div>
+    <div class="spokt-item">
+      <h4>Politisk</h4>
+      <p>Fellesprogrammet, NATO, Kråkerøytalen</p>
+    </div>
+    <div class="spokt-item">
+      <h4>Økonomisk</h4>
+      <p>Marshallhjelp, industrireisning, rasjonering</p>
+    </div>
+    <div class="spokt-item">
+      <h4>Kulturelt</h4>
+      <p>Nasjonal samhørighet, OL 1952, filmavis</p>
+    </div>
+    <div class="spokt-item">
+      <h4>Teknologisk</h4>
+      <p>Fjernsyn, vaskemaskin, industrialisering</p>
+    </div>
+  </div>
+
+  <div class="intro">
+    <p>Da freden kom 8. mai 1945, lå store deler av Nord-Norge i ruiner. Tyskerne hadde brent Finnmark og Nord-Troms under tilbaketrekningen. Gjenreisningen av landet ble den store fellesoppgaven, og alle partier samlet seg bak Fellesprogrammet, som hadde tittelen «Arbeid for alle». Arbeiderpartiet vant valget i 1945 med rent flertall, og Einar Gerhardsen ble statsminister. Han skulle bli sittende i nesten 20 år og ble kalt «landsfaderen».</p>
+
+    <p>Perioden var preget av stram statlig styring av økonomien. Rasjonering av varer fortsatte til 1952. Gerhardsen oppsummerte filosofien slik: «Ingen får kake før alle har fått brød.» Allerede i 1946 nådde produksjonen førkrigsnivå, og med Marshallhjelpen fra USA i 1948 ble gjenreisningen akselerert. Samme år markerte Kråkerøytalen et dramatisk vendepunkt: Gerhardsen tok et åpent oppgjør med kommunistene etter kuppet i Tsjekkoslovakia, og Norge vendte seg vestover. I 1949 ble landet medgrunnlegger av NATO.</p>
+
+    <p>Mens velferdsstaten ble bygget opp med trygdeordninger og boligbygging, var det en mørkere side av nasjonsbyggingen. Samiske barn ble sendt på internatskole der de fikk forbud mot å bruke morsmålet. Fornorskingspolitikken, som hadde pågått siden 1850-tallet, fortsatte til godt inn på 1950-tallet. Parallelt med dette begynte en teknologisk revolusjon: fjernsynet kom til Norge, og forbruksvarer som Hoover-vaskemaskinen ble symboler på en gryende velstandsøkning. OL i Oslo i 1952 ga Norge en arena til å vise seg frem for verden etter krigsårene.</p>
+
+    <p>Tiåret 1945–1955 var altså preget av både brudd og kontinuitet. Bruddet med krigstiden var tydelig: demokratiet var gjenopprettet, og en ny velferdsstat vokste frem. Men kontinuiteten viste seg i fornorskingspolitikken, som fortsatte som om krigen ikke hadde skjedd, og i Arbeiderpartiets dominans som hadde røtter tilbake til 1930-tallet.</p>
+  </div>
+
+  <div class="sources-grid">
+
+    <!-- KILDE 1 -->
+    <div class="source-card">
+      <div class="source-header">
+        <span class="source-number">1</span>
+        <span class="source-title">Fellesprogrammet (1945)</span>
+        <span class="source-type">Saktekst / Normativ</span>
+      </div>
+      <div class="source-body">
+        <span class="label label-politikk">Politikk</span>
+        <p>Fellesprogrammet var et felles politisk dokument alle partier stilte seg bak etter krigen. Grunntanken var at samholdet fra motstandskampen skulle videreføres i gjenreisningen. Programmet la opp til statlig styring av økonomien, arbeid til alle og rettferdig fordeling.</p>
+        <div class="quote">«Den dagen vårt land og vår frihet var i dødelig fare, opplevde vi at vi var ett folk tross forskjell i livssyn og kår.»</div>
+        <p><strong>Kildekritikk:</strong> Normativ kilde som uttrykker hva politikerne ønsket, ikke nødvendigvis virkeligheten. Overspiller samholdet og underspiller uenigheter mellom partiene.</p>
+      </div>
+      <div class="source-meta">norgeshistorie.no/kilder/velferdsstat-og-vestvending/K1815-fellesprogrammet</div>
+    </div>
+
+    <!-- KILDE 2 -->
+    <div class="source-card">
+      <div class="source-header">
+        <span class="source-number">2</span>
+        <span class="source-title">Kråkerøytalen (1948)</span>
+        <span class="source-type">Tale / Beretning</span>
+      </div>
+      <div class="source-body">
+        <span class="label label-politikk">Politikk</span>
+        <p>29. februar 1948 holdt Gerhardsen sin mest berømte tale på Kråkerøy ved Fredrikstad. Fire dager etter det kommunistiske kuppet i Tsjekkoslovakia stemplet han NKP som en trussel mot norsk demokrati. Talen markerte slutten på brobygging mellom øst og vest og begynnelsen på Norges vestvending mot NATO.</p>
+        <div class="quote">«Det som kan true det norske folks frihet og demokrati er den fare som det norske kommunistpartiet til enhver tid representerer.»</div>
+        <p><strong>Kildekritikk:</strong> Politisk tale med klar hensikt: mobilisere mot kommunismen. Gerhardsen hadde et dobbelt motiv, både utenrikspolitisk (velge side) og innenrikspolitisk (svekke NKP som konkurrent om arbeiderstemmene).</p>
+      </div>
+      <div class="source-meta">virksommeord.no/tale/110 · norgeshistorie.no – Kråkerøytalen</div>
+    </div>
+
+    <!-- KILDE 3 -->
+    <div class="source-card">
+      <div class="source-header">
+        <span class="source-number">3</span>
+        <span class="source-title">Internatskole for samiske barn</span>
+        <span class="source-type">Filmavisen / Levning</span>
+      </div>
+      <div class="source-body">
+        <span class="label label-sosial">Sosialt</span>
+        <p>Filmavisen viste internatskoler i Finnmark som noe positivt: samiske barn fikk utdanning. Men virkeligheten var at barna ble tatt fra familiene, fikk forbud mot å snakke samisk og ble straffet om de gjorde det. Staten bygget 50 internat i Finnmark mellom 1905 og 1940, og systemet fortsatte etter krigen. Først i 1959 ble samisk igjen tillatt i undervisningen.</p>
+        <p><strong>Kildekritikk:</strong> Filmavisen var en del av statens nasjonsbyggingsprosjekt og fremstilte fornorsking som sivilisering. Som levning forteller den mye om holdningene til myndighetene, men lite om barnas faktiske opplevelse.</p>
+      </div>
+      <div class="source-meta">norgeshistorie.no/kilder/velferdsstat-og-vestvending/K1806-internatskole-for-samiske-barn</div>
+    </div>
+
+    <!-- KILDE 4 -->
+    <div class="source-card">
+      <div class="source-header">
+        <span class="source-number">4</span>
+        <span class="source-title">Gjenreisningen av Hammerfest (1947)</span>
+        <span class="source-type">Fotografi / Levning</span>
+      </div>
+      <div class="source-body">
+        <span class="label label-sosial">Sosialt</span> <span class="label label-okonomi">Økonomi</span>
+        <img src="data:image/webp;base64,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" alt="Hammerfest i ruiner, 1945" style="width:100%; border: 1px solid var(--border); margin-bottom: 12px;">
+        <p>Bildet viser Hammerfest under gjenreisningen etter at tyskerne brant byen ned under tilbaketrekningen i 1944. Nesten hele Finnmark og Nord-Troms ble rasert, og befolkningen ble tvangsevakuert sørover. Gjenreisningen av Nord-Norge var den aller første oppgaven for Gerhardsens regjering. Nye boliger ble bygget med høyere standard enn før krigen.</p>
+        <p><strong>Kildekritikk:</strong> Fotografiet er en levning som viser de faktiske ødeleggelsene. Det er trolig tatt av en pressefotograf og gir et ufiltrert inntrykk av situasjonen, men utvalget av motiv kan likevel være styrt av ønsket om å vise behovet for gjenreisning.</p>
+      </div>
+      <div class="source-meta">Wikimedia Commons · Fotograf ukjent, ca. 1945</div>
+    </div>
+
+    <!-- KILDE 5 -->
+    <div class="source-card">
+      <div class="source-header">
+        <span class="source-number">5</span>
+        <span class="source-title">Einar Gerhardsen, «landsfaderen» (1945)</span>
+        <span class="source-type">Portrettfoto / Levning</span>
+      </div>
+      <div class="source-body">
+        <span class="label label-politikk">Politikk</span>
+        <img src="data:image/jpeg;base64,/9j/2wBDAAQDAwQDAwQEAwQFBAQFBgoHBgYGBg0JCggKDw0QEA8NDw4RExgUERIXEg4PFRwVFxkZGxsbEBQdHx0aHxgaGxr/wAALCAFaAPoBASIA/8QAHQAAAQQDAQEAAAAAAAAAAAAAAwECBAUABgcICf/EAEUQAAECAwYDBgUDAwMDAgUFAAECEQADIQQFEjFB8AZRYRMicYGRoQcyscHRQuHxCBQjFVJiJDNyFpIlNkOCwlNjdKKy/9oACAEBAAA/APOk6XhUU9mwJcYgPpEUgKPyJGjab3SFRMcLMwJlrDFKwmr1YHf5hiZjGgYDIZtDMQLg4Xyy3zEO7Q6gRmImjJL0r94KoqVKC3SEpoQJYo9IQLUzKABZqhn8vT1ggWlSV4ikEkM4pkf3Hl6rjSkAskhtUgb34w6XNSqmBNSzgeP5ghUBUolseSN9YdLNFfKmjthhyf8AiXqKmmoaCS0pwpw0KmZ9P3hapyCQxYjCCX8Tv7s7VQDuGAr3B0hzFnUzkB+7nEhAwhjXwMSpMpJzAKuSq7zgwlAJNEjUMgV99tD8IRNUQEeGDfKCIo+JMtsvkEGZIJ/xod9UCld7eGqOJGFpeLXu0eGSVOSO4h2FEjf8wdKkUBSknInCGeDheH9KP/YD9YeEqUh1BCQEuDhA5wstRScgQTQdmN/X3aLRBQUJJlEkgORLR+I5tOQFEvpzfKIipYQmlTWr9YaUKwkuCFZUyzgKkELUkOas4FCOkNlpQSy1FKG0Ps0IhNWD+PhDgFGoBNXLCvr5wqDhJdJKSO8Ho3Pxh84dkopBKgoYkqzcffNj1pDgBhqwds/pChf+0Mps8/rD0j9TB6VbesPUzNmPHOMQAy+baanZ94KhPdbQnmfDfjCiaGZVEivh1hyZnaAhRZiwPpQnzhplqFCCkihGH1HqMoOiUTUkdDm/50iZKlEucj9PGJUpA7RgMx6mHB673rCqqrRm5ZZQrkdA+o6/zCpmEEP3gOkDxqckkj7bpD0pyKQX6fiCITV2LsxI3ziTJBUwUDnk1YlJlqSlKi509ocEUxEYiaZEn1/P8ykzl4RimF2q7RoNoQ1AADEIoUshAS4YuXgTEJqcQalG6n6wxSe8olu6kV6HnEclgS9AKh6xiSXzBbkNd/SFxaEcs6N+IRJVzetGGu38IPJUudKVIJFFdpIUf0liFAHkoeNRCSiFCpccmzhpmJchOenh4b1gqEzVJxISpWdfL9/eCEKlP2hFQ7VypnvnDkuHIq+Ry5N9oeHwHEQAKc3ggIL4gyiAD5ZxgDCg679/TpBwSQygFhNSVHLwMSUYA5BxBqOGgxmCUaF8VXaCiYAzk1AILs+/vDDaHLAuMqa15wz+6PI+u+UPROxMTlVg0Z21HKs9Wf776w9MwKGIanl1iQiahKWJJ8A/ODS5gS6h4cqGJMtXeSSKvzziX2qRKBQXw08odJoyWy56xOSJeEUGX+5o5/MAIOFqgZREchTuR3asc+nvtojqZCnLMOQpA3JIS1BQ15DWIy0ZhYpyMNUHBcP5Q3o4LmlM/LzjGdyz0zz0OvryhomKEw4SQQcQIq3Wm6xIs0qdb1EWWVMtCiXVhS7dSfvGxXZwPaLbNw2q0os6h3mSCskU1yy+8dFun4b3cES/+lm2lX6UqUplHWkbPK+HF32lPY2m5pSkhQT3EqcAaO7D9hD5fw1uJJ/yXagYSKYlAj36a/aKXi3gC57EmV2dhniUo/41SE0xdTV45Df9jFyWkBnlkFlJJUwyrRubsYhyLRKtAUZa3MvvFJZ8xpnqIMCXOKtPHevpB5cwsaYgBR4cFkqZQZ9XiQqbilIfR6xGXNqXV4UeFBEwFUsknXPnp0h0ou4/S7Vrv1glQyhiAJZ3z6PBHDE5sdRvlB0koYAOGO99INgKauRnQPv+ImSCHZ2c6/XfKCy8jWjeQr+0GRjOEAEqUwbzyixSl0jvaf7HjRpwwhgSaa/iICj3iQ7736Q3s04FLVm7BMBUtAAagI13028RlhKkFQJOvOBEAin1hHACkMDiYqoK8m/aBzVplS1zJmSc+7Xf4ix4auRXEM4z7QuZIs0o4iye8weg5x1W5LrQuXLsUhPZWQgYUIQylCnzEZvHTOH+DZS0y0rCUI7p/wAYYCtH60jpF1XBKkOopPaFQTQMw8fHOLRVjXZg8kIwKFQTixdSXiLa5EyekImplFCT3e6K/nOKa33SLVY1SrWRMkzCQQHHodvSNA4i+HMlNmKJbT7OUkhM04UDmzhjTrHAOLeFbRdFrVNlWUWaTMcSykYnY6F22WjX7DbEzCuTNAlzkZg5Hw1ixSShCgxBw1fw8IcVso4qd1qUEIVlUpQDBlnnz/iBPVzVubePrz8oJJKlUTQ5Z1ggWpBYjKpcQeSe0K+4oU0EGQn/ABJq9aVpBUZ0qANd78omy0AglTjy8YLmQUM3m0SJaRheuhyg8mWSpNO6C2+cWYkuAxLeDxz+Y4clxR6xFyBYZH7wNYRhQU5tUxHKwDrXpAORIPTe/wAjKWdzR2pvbw1nIr5QS67Im9L0kyjKOFJcutyAHOQ3WOmWOzJnLlSLEkmzy6MEpFeVI6Rw3cZXNStaSHAOefp4x2ThqwpkygkP3lYfb6e8bUmyJH+RGEOHqPHe6nTZDNSEgALcOH05RGnWFKyFKqpambJn/ndYqLbYZicSRIdOQXiP28YqpqXkzE2k9qlRwdm5KXch/URzD40cGrs1wTJyQnsgMWBJ7mE5jCQ4NRSPKFrmmxW6WtQXiC2xEgvvnGwDvd41CmJ6xnZDEdfCEVKHZTCNVBvp5QiTQc8/xBESkgYXr4b2If2Qq3kDB5Dd46Bs33pBpIJSx5anyiQgJWRiYFszSJBQOzSRzYU6/sYNKWkvqzZ/iDpUlIwk1yfIRKkMFlSvlJq2e/2iwStkgY2YZYyPtGiWsOsnMkNSn08YgKHd7vefJxn/ADSArJCSz1Prv7wKYcJGHJmonPf4ga099TO6WA16wwpAyS7ZDnAZn+KWVpYlqAmhP8xZcD2YyrBa7wVMXLVjSiWMJdZL69KGOy8JXf2yk4gCQgYScnNTl4x2a5LnQgASUJSQxLmj9fSN7ue7v7eXISUrfH3lmgdmjYUy2koSzvoHg0pMyZ3ez72LunyNf3htssykoKpyQkBWf7b1igvLuSJi1lJSP0iuHxyz+0axOQjAqYggpP6Tp5xS8VrRfPDVvlWxSEzpEsFCT3sTVrqNPU848b8Z3euVae0nyBLlzCoy1Sk9xm55CukNuxZmWCUVFylIDAN08faJuBIem9t6QrP3fpCYE5MPI0hJaQUgipA3v6w/CQS+Y6w6UlgAHqX8B+M4lS8LKU2WYB0fKC4WCQ7hRDsawUJwpwpcJTUP403/AATSDSjgNqdYNKRhKQl2yqSYlykEkkFy2T9P4iwZWgURpQxpM8ElhVq5abaIaqkPQ4s2pnv0iPNRUOR1o8CUCpujgvzd/tDcDjMM0DUO8VE83pntoYWMtSWSSr/flF5w0pJueRLBVLSsnFLyZyWjtXBAE20pGIjCgKUkBgSRTyyjvvD1hK+07gEopOIvyNPvG4WOyL7FUwJGFADBRqH6bzyi7sthlzUgzJkoUqnkItZFns8lYUQMStT756wK8FS5qVDskTcSfm7SueojUL2s0uRLmhUohK0miY5r2qUDsZYGHIMaOIqbXaZNosN42W8cHZkdohSE94EAih+uhaPOvG9yzrJLnIQtS7IqiCaM5JYb1jnd1zlptU6zrVjS9CeQ59XEXJoS4ZvrDkkJDkOdd+sN1JOsLLIl1DvpWFKsTj5XpnSChQV8oZhzBpvfIgGIAKppyiRLXUAOSS1DEgMXfI6ZVggThwjrz12INKzbMn03WJ9nbtHLuTm49YsMHQ7840ecAJi8sqON/nKIa0s6gGqzmIqwrFUKJ67z/IhgQ9CApzmdDQ/b3hiqKJZhmIEA75Hf8bMMUQHqAMvDbxdXWqXKFmExKcRDMosaa7rTxjsXC0ifK7O1ywAiaUpY5BOGh8H0ju3C16yVSkyEzhMUSE2gD5kF6epG6x0CzFMyZiUyQaEu48G8t1izu+0ESAZcsSynueB6RdLEwJGFKUqTqEvrFdOnzJCz23ZlLf7Yqb9lYrAtYwKmKJAdTHI+schtSUyUyQSRjUslixSQQPqXigvFMiWZpSJsuYlBYBOJLnRT6FtOvKvAONrdabBMm2c2mQJSWCESz2iWJyOrdDlGiWDsP9RnrGFCy+BCaBXhzofeLhKwoEJX3UllVyMOWCkqBNX9esMjIxIdTaaVaCoBBLunxbrBU0HLw6HT2ggxBTKfX2iSSrIEguPF8tfODyyVEkmutNYlykjCSwds2iXJHfr/ALvvE1FEpzy5q/EabNQ5NWOVB7+sQ1EaEZuKnLZ9oikOpXodP4hE91RYu58NYEpId3Lb35+gcITio+dMqQE6vV9Rrv7xYWSfMNrs+FZrLcMHEdw4fm9lZ7JLUozEzEpAKcgfF+gjuHDSkq7Fa0kzsffUVBy1PbfOOq2AS12HtBMxJAD0oevTTebrEg2easkMozAogjL1rGxSVImLGIMhOYBZ6t9oiXhJkrlEgEAkCoNX6xUWuzSuwmGzTkWmUBQpVQ+PKrv1jjvEViTJtaAU95JURhLCvL0HrFTeEhVvuySZiE40nuJBz5V8so8/fEjh6XMtMyT2E1B76khDArr+ktQpNG60js/wY4Cs/BfBUm9bFdthtvHd9SQpE28JItCLDJcBPc0UTUnVoo/iLwhe3EfC183nxRZbuTxVcIE5dsu6SJEu12UqY4pYLBQ9axwEELdQAwBOh0hWFe6/gfpnDCCBX10gsuWQp3Ljplt4JgoWqAK++/SCIQ4L5g+O8vrB5UgqUBk3dA5wZKAWGbsIly5YCg4JccvGDSUBhV313unrJQWWef7CLAAgABSmHJTRp87owpn55/SISxQAsGBB5a/n29YivmJyDVMNUHelTnvecCWGIJYvtt/vAVIJSoULjnDZcszZiZSMOKYQguWroHO/eLM3PbLl4hsNmt0kSpq7KrDkcQOubNHpXg7h2yTLkAnWiQgjvqCiCUhvV6eMbzZLDZpUzs5d42ZZZKgMYSfB31rrGw2DiT+xtxsSpg75aUBMDknSmdI268b4l3faJc4TSiUtIOFRA7wenQtp0jnHF/8AURZeEbwl2KxokzUiYROmLSFYUVDhz8zN0zjR71+N6uK7Ym7bhvOVbLPNIUZcuUVzgkVGLA7gPzFT4RtvDQXYTJVbb3ssi0zlEyhapkxJVl3Upoku+RJ0ixvq75k7tRPVM7RIJTjSzBjkNPGK2dKRLs8kGWrChII0c8/pHNOJLrMy9pU2yzgqQZycSTKoFg0DDPy6x27gC75FgsEi87ba7LNvK0SWVZ5aw0gAkAHxOY6erePJMm5uCuLbaT2gN02hAcgA4gAPfdI8LSgUy0AOGS+oYtCpQFJBcjTxhwSQ5YUHL6QRKElLVZ6DpBUpwgrBNdcusORQqKdD9IloGSW1be/3IkOK9D4nfnEiWHS9NB9YPJLkmtRTe8okyhmNSr8b84nYScgpugMafOopQAakQyHmHRy3r/MRZqAlyHy28CxACnzU557+8CmE4gc8NR7/ALbEMZgcmA59P294ZIZM9KixZYBGja09fSL+22O8ZN4XVaLdNVaGlTZUklQzAcJ83p4we9OIJsifKTYrUtVtJAWgyioD/bh5qOg8Y1++eMeKbKq1WMW5ViVZZy5Js86antUrDYsKCMQbEItOCL245lcVXdZrX/c2uUi2Sk2sTHJlBSmxEEOz6jn4x9COIuE7JeXB6ZN6dt2k4MCmikqTR3BFfzHki/P6buJ70vu322zTzO4fVPEsKM4dpiNG5BL5qPlGyyP6ZV2T4f29V12Kzq4nkWxC5MmdaUGzrkocKlAqUEqxEhQKqKarCLX4d/B5F08N2+z/ABBRYLwvu81yUWa77DNQpFmTLSAqZMXK/wAfaE1IQ47orHaOEeDLVd9mmyU20z7DZwZPbKkDtgaMkkluVWq8VnFcmXZJlplSkpGCoYM9M6+Ucfm2wKv5CEOCm0ITSlSQC2nKOmcO/C+ycOiffF1TO2st4zjNmgqIVLmlXecE5EkEDy5xrv8AVPxNLum5k8N2OYEzbeuTJtLKICZaBiW3mRTpHlQKdywBOhFX5QjuO9kN578YUJxYk5Zvv0h9G7tB67/iHpVnTKHSxVQzGXjTe6RJTmTmchvekHQXBOp394PLUUppvdYKhSQWl6edNt6ecWFnJpEoLYAYfc/mNQtBYs1a+fLf7xAnBgXrTSI6yFUDBwA2XjSIuKrFyRnXb75wKYcQYDPf3gLB/PPzH5+sDVq/Tmd7zjqlmmLt3A9xWtIwSpc9ImFNWmAs/wBPSLSzXTN4av2Tf1mkyr3mor2NplIEtUtQqlgMxm4q8X1ot/Al/XnPv68eCLFNvlRCpktd4WtaJk1NApVmSAnFRIqoOEihi/4UtRvi+7oRekizSLXa7yCgZcplpQk41h/9rgDxLVaPTt6SVhNjk0X3Aopegpp0iCLoTbbPPsiCkItQYpY0U+YYjwfxjSLX8LbFYrWtFvRbAsAMuUoTUMCQ+FaTyMbNcHBViu+ljVaZqVo+aekSznRmjb55sl0WFUmyhKjUrKlOTn93PrHGuO70TJkWmcFgIIGEswL0+xjkPCcpdv4ku+0zFk2dVsQuYWagIJ9gY9PXUu0Sbvs9v/slTZ9unG0WSwrOBLuyCroxfX6R5G/qNvVVs+I0y75tpTa7TdlnSi1zUjumfMONYHJqBvWscnCqlRd8zv3gia5Bi+u/CHoViYPnV4WgyYvWHI1Z9Moegd4uxcv0h7CunOm9+0yUWShJIc5B4MFMkUNKPSHy1OSeXOu+UT5DHvUbUaiJzDUP6xqVoGJRzYU36+0V84Eu+ZPpUxDmP1ypTWI2XXX3d/QQ0pI0NAB4QAg/pcE734Q0O5Vlzf18NmN34E4isieHb84cvVYky56P7mxzjkickOxPVtY7HwBbrBxFd1kl3kPlUHLOUnU18PGNt4g4futCUS0Wq2TEBJdIUUggFy5/iKH4cWU3t8TJc6WnsbJd9mKEIzYE0949D3zb8K+1UMIEtKQ4PmfpGXNaZgtYKVspXfAcAvnn7xvlsxKQvEwK6FWEZPz84obYZ0hB7BEoqSolGp65axpl92+cntFdqoKLg09v2jiPxGvCbNWmyBTmat+VGZ20bbxWcG2MzL7uewpXgM+1g0LZVA8I9McQ3/IuCy2i9rwtCJdnu6zf3CiasA4AHj05dI+d963raL+vq872ttZ14WpdoUf/ACJIERknR6HMQWXQVNNPBoUFwwSxbe/GMBOQoN71zh6XJV8ze+v5gyAXDu/uP3h4BxDl4QVAZPKtH8W+lPWJMsDBQb1/eDSgoKGYchomWZsVBTMekTwot/3FDpgf7Rq08fM9aD1MV0w4mLZmmu9RESa6ksB6CIq0sVJpQke/7Qi1VVQVL/b7QAh1qpkwpzhMQGvpVt0hlnnqs09C0hyggnEHBGo8NiOkcGXyu7belMiYRKUrGgAuACOXQuI7jZ7xFvkKXaCruAqHd9vWJXwUt9xTeLr7tFutaJGGaJbIDqGEZs+TmOvcTzbqtNskyrFbpU6ZNSysYIPPLQClYquIL9sthkWKVZbTK/vCZcsS0TAFlJOElubMa8o2ywcRz7OBZLeSsAYZZei0AtnzidOtonI7iStxmMq+fSNTvdCVJWF5HU+J/eOHcVpRbL0mrWMKZSSlP/Ik5+wjnfHV43hdtik2u5J39pbbFNlTpSgajCoEt1z94qeL/izxNxvYTYb2tUqXZCXmy5CW7VQ/3nXwjSWqSBXWkOS9WFR6/wAwVMtQTQdeWn7Q7CXPQV35xgQzPppBEa+EFD4a03v0h6clMzaMN9IKrzFf2+/vB5TEjIfxB5YdKaswpSLGzJAYsC/TexEvF1jVrRmpnyYaxVWhgsgUHLnETEQpepYDXnEclyTk/Xx+428NXnyp6dPtAJj4jhf99tDKE1rpvlAympcDmct/zF3wta1ybzTLK+6QAP8AiH05aekd3sNoSbBhUsYlpYOpnB1GrRyf4lSbXcV+ovnhZHZ40YLUqUCDMUB8/IDSKW5eKOKePrXYbgvO33lYZVrJE60S3QuYgCgxNiKegIj1n8GPgvc/w4nzLVIlzLVbJy0/3FpnrKlEAaEksK1oI7Ted52W0Wf/ACykplILPjIGftpT2iFKtMucClBQUpDpCgSR9HzjXeJb0TZwsBhTJIOb/wARxy/SUTpi1gYgcanYvnHM+LLR/dyp6VgNhWGZw38Rz5NRQV6Qqc6e0SpbHEGcvkXzeDoluXUaVq75wrBjT69YCZZJLu77+kEQgAZgmHpHSnhvbwRKSVOQw19RBEitQH/brlBkAtSnVmg8kinp7RZWdNSSHDamJ7K0Ab/yA+0ahaBRxWjfXfnFZaEhwaud/aIBzX5aZF9++sAPyny37/SGANSsBWHBPOmW9mGvmXbf7Qi831J8st+8OsqzItMpaTULzPXn9Y7Hbrw7G57rvNS0y5faBKmyHd5xR3dxVw9e1stMm3XhY5UoqoZkxKA7aPRX7x3Phi8Phlabgu28JPEt0Lm2BIXaEi1Sx2RDvR6P+Ivl/wBRXwrs8lSZfGV1zMJKgn/ICk/7XCe8MmirmfE238XiZaPhfc988VS0JKu0k2FVnkFgXBmTghGlGcxbcI8YXlfNul2S/wDh63XBbZSQoybZLKSskkEJILHx9YPxXbkTbZZ7MJiisq7xd/Xeccp45vSXZbVaVFfdlmhFHbL6+8cvXaTa7JaZ6HWhNmmLBqzUBB/Ea5LUzihp7ZwaWKkHpQ57pEmWwKmAIGmfPfrB0Bnc/qr00/JjAgFnqTve2GQkqbFVh5bpvIgSOzTnk7eXtrsQ4Fgx8HZnrX6baFQHBpq5B8/3hXwh6M7uR57/AJgtCA4Dsx1578/ODyTWmpixs6iopL1MWwNBX3EafPSyl008YqptX1fkc6xGm2eYZAtOF7OV9njxBsXKIUxWJtRTTx/eGCgJgRqC1DUg56w0hiWNc898t1hAKU5/eGgd4EsRRwfHZjpHDFuRetyTbntyBPlpWSkKGYJzoft9omXhY7Em7JSVXLd96WOU6f7SZZwVIfVNKEwCRxTwDKmSez+CdlvSdKT3xMOBNB+oJAf1MdS4T+MtptCZNi4d+E1yXAkj/H2F1yyE0phVhAy1NY7fcF/XpeUiUviSYuZRuxNEoDUpkIhcV29M6cj+3Qla5A7oCu8Etq+f7RoU22f3F6mZaCUJloC1lshvnHEONb2PEF/m6rqGKWqYTNWkZJrWLK3XVKst126Sh+7ZkpSMtMvGOX2WYJ2Ls1BSpahjTR0nr6ZxNQ7Ej9QDuYkSwVMScs4KkYQQd73nGEOkgs+j836ee87a9b4lXnZrokWe67Ldcu7bEbNhkEqVPUVlRmTFq7xU5NXoGAitSCHOv3fexC10fPrQRniKRhetHPhvpD0EgsxqD4dHiVIDOVg86fWLKz6tRummz9It0yVFIOJOWpMaXaHLu+W/r5xVTSKhQd1ammZiNMAUokgKIWFBxqNYiqmK7NSKEO74a9a+m8wn5SNIEssrNgTvfhCJ7xUV6a5bzhrUcjSkYQS4ch+mnOJ11XuLttsntlpky19zECfWO2fD20XfbrzVZ7zKJiQjC6Q5BrU6eUeheCbLdc5KbQLJZEywoMUyxiWOdc6vlG/olXbNkv8A2lmQMSgXkgUPUCIV52y7bHIXKUpCZpQCkj9IelNaGOS8S8VXddP9xMmTpS1BQ/xqzNCxf09PXz3xl8aAlM+yXS062WpRClEkYAXAbmDn0gPAl1zbKk2u3BUy8LVhWW/QjkevSN3vazL/ANAtpIUZ09QCcI1NAH+nj4Rxr4xcLT/hxxHcs+zrBNqu6Wm1j9K5qSAoHyO2jLBPRbbPLnyiFSpiQoMKpOoPXdKRYISEgM+Q36wuQ8t/SM1LnzPn+IcgAmvKj1rXSHpl5hVQS3vv0hxQ4JBY0IyLnnCIRnifIEEHUUzh8pLEOgqLthdn5RYLFnErAhPeWUsSdnl6wOVLUnEFYQU1dJcZ/tFjZkAEuNA+vjF7LkvLScTOB+v9o0O00xqZsw0Vc5LJJcuD9IhTDhSS3L8xFbE4GZzbe3gZo+vhAplFUzyjEAkci7PyrTfjGGodynWmlfwIYRhKgwYHyhJktE1Kpc2WJktRGIEtTSuYL1hll4ktvCk2QqSqYuQ4VL/UqWXfzFco7Fwf/UvYLmsc2z3hMmJVMY/Ie+RzpT6ZxsUr+rS5ZImFMiepbjCCgjrqY0W//wCpS2Wqdapl3yVGdNDJmTWdJGR/aOT3hxRfnFlsK5lonTF4qy0qIA5k+UbvwHwKVr/1C87MVBIaWkkqKi+r/TpHcLouQACapASpfyBqB666NsxvNwcOyp8yVbbfLxXfdyitKdJk/wDSDzY1PWPN39Vt5S5/FVxWBHZqmyrMu1TkpL4VLmEAN5Zeccl4Rv8A/wBNnIs9rxTLKtTOe9h/bLwjpctSTKC5agpCwSGPX235PCe6asG5dIQByQaZ/f8AMEl0WWcmkEo3gNKdN8zDwkEOqtQHYb0h5l17pxaHSGpBJZIcmlIOUk4C+JWobez4wezyyoKGTjQb5baLKyljmM8zTf8AMWoly/1Lrr/ijRbQCzBwX8N6RWzvly8RzDxBmBieQo5GcRVDVHytnlvfJ4YoOSwp+/4aBMXJIfz3vyhGwgYqaH7w/COQpDWqQN6/becYEkAsGD+G8zFPev8A1k1dhlpBmSZJnHCakjMHesa5aLCSl0lYxDMa0iGiy2rGlCUutRCWAJzjqnB3wXtV5yJdvvw9jZMxLFSR48usdYurge7ZUuVZ7vs3ZyZTO+ZPj5GOk3Lw/Js9nxTEMiX8uI0FGje+HeCZttli3XwuZYruJBLg45pH6Uvl15xb35arNZ5JmTQix3XY5Cl4E/LLlJGIqJo5YEvnSPm3x/xZN444xva/VgBFpnFEhDB0ykkhP/8AUHXUxQyyBhFM3jbOHOKhdoFltqe1sr9wjNPhoR+Y6BZbRLtUgTrNMEyVhdKgfHOCJxF6k0/EPSBhcNXf001eCKqQyAgsASCSCedTn0h6JS1y3ABHQ1EOQ4Cv08mNMs4d3kkqAII9jX9oNLQVHEaLds6tpEpADd0AABstc4l2ehOQScvBosgzfpHjGk2gEqUwqOem984rJ+ZCqHXe84iKAqGplnEeYhgAC5LaQIjDQ0ppvp9oaJS1FgKu0BPdWQv5hQgVaH84Y3eJNGrXe2itvS/bLd4XhUJk5mSAp+unjFDwpeI/9YWKfbCoyrRNVLnMa9mrMBz7eMbNxBw1P4avVV32pKJiVjtLNNJOCdLOSgWz08omcK2yzXHeUmfbJInSU0UCnMR6Ns/GlzXrYpMuyWiTJKgCmWA5dqMBlUxstwXfNvCdKkWST286YoFKUByztpkOp6co7HdHBKbnKJl8Wc2uePls6A0uUf8AkauXq0W14TLRbCTOCiEEJ7yiQkcm0zpHl3+rj4gSuHOFLNwbd89r1v49tbFyiHlWML1rTERTokx4sEwEJegLMGZhT8BoIHByfw125hxmEuCA3Qvrv2iyuW/bXc1oK7PMVgJdcr9JH0z+0dMue/bJfVnMyQoSpiT35awxRX38otAvCOXLe/rDkGrMBTT+dvEpFoYKAALBs9N/WGo7oOQIP1h4L9308jBpUwAsaP7xLlFg9DV6iJ0n5zm3N6M8XSCQhIGKgGp/EaJeFn7EqYuHo2cVE6qA3jQdYglJD0YDllAVoAClCmvm/tAmNXBFActOkCX8z/LR6mBL0UojCHBJOdf2iBbL4sdjlq7eaFvTCg+O/wCI1a8uJZ9t/wAcgdhK5irjbRS0z+ZjmTn94nXJM7G+LvmKwkInJNSzR654M4RsHxX4ZtHDlsnCz3nZgV3Za2JKZhyQRqk67EaBP4Et922i03Zfdl/6qzTTKJQQQrDR0qeooaR1L4PfAG2X7NVeKLNOua7kqwqtikOudzEtOrc/OPYNwcJXVwxdn9rdUgJQpDKmKUVTJh5rXm/TKC2tUuX/ANtISU1o7Hr4xpPGPFFg4TuK9eIuI5n9vdV2ye2nFSiFL/2oT1UphHy34y4st/HXFd68RXwpQn3hPKky8RIlSwTglj/xSw9ebxTsUnEWYl6Z5794UEGgfl9t+sYpWEOfYb6+sLQuHLE18NiC2W0zrHPRPsyzKmpyI6/zG63L8QMIlyr5QEkg/wCWWcjz5bEbhY72sFtl9rZ7XLWkszFn8B/EWSEkYXAHjQQ6W2E1HvSh34PBhUEno4IYnf3gsij+OcS5SDhYNnm/09Im2cHEohvzF0gnCO4g0zKqmNRvAnBM0Apv0jXZqRhNGr9zEZSQUsR9tBEcAiKy3XlZLEgrnTQCwBYDf86xrVt4ueYpFjlFQGanw6xrlrve1WtTTJygkt3U094hKWVAv4E1c7pnDaAuw9N/isPSp8mfKh6xacN2Jd4cR3TZZQ78+1ISNXrWPQk6327gey35bLttC7LaZd3WlMiaiikKKcIPiDr4xxLh+eudKRIvGaZKJ0qb2N426fMKZZPzLQkGiganOPpb/S5xtaONfgtdf+oWuVeF53HOm3VbJ4L9oZS/8agOqCmurGOp2iYkYklSAlQitn4J01KASpIwpJcgco8S/wBbXxLTar0u/wCHt0Kay2NMu33oUq/7k1QJlSizUAOI9QI8k5t6k+tfrCuVJAP03/EYFEZZn6P+0OYKSxyAalN781yFBT7NGZGr9fffvChRbNxr6/TWFluC6SUqH6kljFzdvFN63YoiVajOlGmCaolt09I3i6/iFd9rQlN5IVd80hgfmTvpG4WWZKtMoLssxE2Ur9SDTbbpEmSgIDqJIAYNTecSkHCotlyAG9Il2Zbk1TXMjL676ReoQChP+QigpjjTrxVQBLnIk9GP5iinSiAWoAPtpEG1TZcizqmzlBIQHrnlpHO754ttE+fOl2FeGSguFAVLU8NfaNZmzlz5ilTlzJhJ15PAgQAX5e8NdwXfDnXJt6Qj8z13XxhQGLV5O+3yh9NHbw9PtHSvgBc4vn4s3DIUkFMoqnqxAlgkCrcqiPSHxb4LM6473myEEY7JNXhCaAsfwY8o8EWKxXsV2WfYLZeV7dj2llRKSVIRhD4inkGGIdY9Xf0Z/EK2S/idxlwXflls12IvK702+VJs3yptFnISsJajqStSi3+2PYtpAGGUEKUkAESyxKgKOT5RC4p4ou7gbhS9uK7+VKl3fddkXaCChh3R3UJ5kqYAZnzj5EcScSW7jLiW+OIr4Vit162tdpmuPlculHgEsnyA8awM1ct/tGM4FHYZHx/eMBDhsvDOHg4FIQM8ifWHJUEp8B9IKkJAc5AM38QxUphicEVzFc97ENQXJoz1z679ofGNnTxiyui+Ldc8wTLBaVoAOLsySUqPUa/vHWOFeL7HxCkSZqkWe3kDFKburVmSnT8ecbRLCmAIUMmJ3tol2VJxEkmmdX3l7xdIbAnF2ZLB3NfrGn25QmzFE1rQHM5xVzddR+8c646vRSGsUuYkFSQTXXl4xoiiVIIoWHod7zhpBDsC4qDqwhPAlhQQzDVwW6CkYBniHPb+Zh5SAo6aPXL6xjEpoCfD8R7B/os+GU+03ZxL8QbZLeWn/wCG3eoBwWYzVCmVEpfofGOr/F69rBw9w4bNalj/AFW+5ybtu+Q5Mxa5hwFeHNkhySXjxbwgVWSx2uyW3iCzcNSbtnTjJtZdM60KSpSShLUIOqY2z+ludLu7473ZfU+2E2O6+1NotEw4QpMwdmSX6KFPCPqcm7cMxaEowl+6tWor6CPEX9ffxGSmVcnw5uufinKULzvfAaJSHEhB8S6utI8RpGEMSTlXJvSFDuXzNISjGtGzpC86+hjAaAliXy6NDySskpBbpvrC5JL0GvSv7+whQtQGEg51prt9vD8+9kDp7xgGuJ+m/D3hcKq6M8PAamWlN8xvOHS5syUtM2RMVLmo+VaCxB0IPlHWuC+PpV8YLtvTDZ7eGTJmfpndDyP1jpFikFZKlJ5EU6RsKbGopB7MmmdPzHPLUMKndyK5e8V6iBUkgCr7ppHEuI5sy0XpaJygQSoiqqcj9M4qMZDgpY9Tvnt4Ql8w1Wz1hM3+VzSGlTVCadDCJAcs1MsqbDQ81cilcuUEs0mXarTZ5FotSbFKmzUy12hRLSUlXeWR0BMe2+If6suDPhdwpdnAfwJuo8UG7ZKbFJt1sQqXY8aj3lBJOOapSlPoOpEbTw18OSeMLRxBxjabXxHxZZ5cvDabR/25K1MpSZSMkpBLc48s/D6+bnsN8X7J44u//UbLxGu1f2YTKTNmyJpmLogEOFKLM2WsWXANhvOxSr64Y4nsf9pa+K1puexXlLWhQs1q7eWtfakfKez8jXlH0yVxxYLs4StN/XtaEy7LdtjmT7dMWpm7FJ7SrmpIBA1BEfHrjXjS8PiHxffPFl+qKrZetpVPIf8A7aMkSxowSEgZRSioL6MCwheT7GxGB2zqDnzjH0zeFUnCkkVf+N+EOQA1da5V108ttC5gtQ+uY5+cZzZm0p6b8IelWIUy5u8OT3lHMQ/mdfHVue8n6nKOcgHHQZqjB/y6Ev4sfrDJS5kucibKJTNSoKSeShUfb0j1FwDe6OJuHbHeIKEzVDs5qMjjDOfBi+sb4mzqwjDKJDULCOTW6WErUl6ZGuX2iutCVKlzihPeKKMWc1pHCLxlTJF4WmXOCkrTNUlQKnqDz30iEsEeAzbJ4TMUrQvTKsL5YkjVtMzDWofesYA7+5aFepJNeZ1ha1dRY6gZiojfvgnccriH4rcK3fakSpkqZbETVBdR/jdT+3nH0csEmZd1vt1tnglHaqWrIsBVXjy9qx4B4PRw1Psl6S+NUz7FaLfOm2rh+2JOJUodqsiUhP6VKWQW5eMRpF7iXNt1q4ptFtkcYWYINkMsoMgoSnCJcxADBeuIa6xG4k+KPFF5/D0cNXhfsybZL2vJdvt93plhgUs2JfzMSB3cqPHOAzEUGme9t5Z6hue/Dz8YJ7VzjGq0KxDOQNS9aQ1QdJ7yyogaht0ggIY/TnnvzhVL77AAGrNCgcshv7CFRmXrpv2h4Sc6AZmCAHFXIZh+uX284wEAkqLty3thAgTzJhHGEsdKev8AMdp+BV5KVZ72uxzilLTPRrRQwkco7WmeyQO0OWkhx66xz62Dvn1G9/nXr9nosV22madEFgcjXXn/ADHA5qsU9Si2JRJLU6CnOEX+rwP13toHRjokHPWMZ9KnlGDOgB1odIwcs2AyjPemugjCPmcV1plHeP6OLsF6/Hy6FLqmyWK1WlQOTJSB/wDlHd/6kfipbeDOEDKuecmzW6+Z8yzSFgd6XKD9pMHJhSPMnCFguW38NWxHEltmXTxRc5lLuBUwkJXZwCopSgFlLUoipr3+ka5fFttNoUhd9Aovezgqm46DBmEkDUnMmNTV3lTFAZqJFOej+sOSBRvDP6b5xiUpoA5DaHx35wooxemZhyEhgdR13yhwSCnU5ZUhiRiOHpSFLy8qYsq5H+BCgBILcueQhzkOM6kM2sPADOC7w8fL5fmEV06/WBmYWLsRzb39hDkFyXyEFQmuQoOW/X943/4OW3+241EkEtbLOpH/ANwqPoY9FBP/ACSPFUaRbHC1K3XZjSOPipHD08pyLA+rRxS0d51Ak1q58hvrAysFJcVaED4qOV83esYA4oHHP6+0ZmNAHMZQs5pmwjAedWYmtYVKXB0bxHhHpH+h4hPxutKDMTLK+HLVUlhQo16AEvHN/jTxmv4g/Em9bRPtIF0WK0rsFgQksESkEuvqVKSTFjKu5XEfDc2971tX9nxhcUtCbNYlyhIR/ZpQ4m95yqYpwfIRzq9rabWpMyaFCetLTcXIDXVyz15mK4Z1o2b+8YlxU5ihfn/MPGdc9YVFDRzR6c6b9oe9D6Bjvl7+MZocsj+fzGVBOE1f7vv8wyUSBjUWB5aCCNUh2PXz/fZjAHLDo3Lf7QVJqXzhSpkkg+FW5xGWta3SAxyBOW/3h8uQSXLEDoc4mCTgQMQdtIVawCQ7l3ffSLz4fKw8cXKRrOKQ/LAQ3uI9XKsa1qKgZfeL1NY0e2glSgaje/SNP4zsonXDbG/QnJ3jhRWSgkli7EO1QWO+sBUTWuefic4RLEt+knImEzZxmKNDsJJoGemTttvrGAEseZzFc4VKQUimkOZhSlfz9vp4Rs/AXGtr4CvW9LzuwKNrtV0Wq75RT+gzgxNMiA8Q7kuS1cRWubIsUxCZ6bGq2BayySZKcSg52SY3LiC+E8fXcjjCfPlSL0sMtFmN2MwTKQABMKzVROY0zjm9pmKtFpmTlAvMUVV6wxKc3D6ZHTYhQACCGBFHhQGqB9xBAMJLMD65bO815vllXzzjAH0JqH35n00rDQaMS9MueekKnu/LlsvA1KIIALgNkOX8NBpaGSCznn6xijo4flvdYdLklVVAsdDvkPrBzKGAEkYmjEKKcT5act5mHzpqW68zp5b94AFBwUkP9n/O6xdcKWn+z4ruaecpVrSOlaR7JVZyhRSmYGSWFHjnt4JcqLNpy9TGkcbWj+24etkw5KDM7dHjg9QVEU7zj1MCUz0yFIzDphL+tc/pGM+gD1pD0MQMg4Dhs8g/tCh9a89ecZ4sX/I/PuYzr9/xunSCWdXZ2mSQUvjAGIUqWD70jfuGuEbXetivORZ5QNo4PnptlqsZBMy2y1LGNAIPdCUpJOlRyiPx/fdl4onK4numWm7bPbVf26LEJuKYoIzUQPlTyGX20pCymUUJWez0fUQhND9IVu8Q5z5ekOHdGbnp9YcAxA5fn9oVKaDLT6fuYRSnVhlihLEvo/7wqUd0BWbVPWEIw+JH3gRzWK0LDXOCpUQkMXYU9/Pfq+XLCgCTi6t0iThCAS9AOXv7+0KSD8xarb+npEVRV3mzrnCpS9V1AOTeo3zhyUgZUen1iwugYL7u0EOBa0VH/kN7r7sSgBIBSCQM+ccptyAQWAGGoplHOPiirDw2UpAAxAU55xxJRBGEF2z3vKBkupVRnrl4w0M2sL8rnvJ/MPQKYWepB1fn9YWoDsTvr4PGAMKMQNf423ujs/q/33rBZUmZOnSpUlxNWoJQRmFGg83I5ZDnHUbNYbbarDZ764WsluEu45abFxPXDMtCpijjlYc1uHxdOcaRxpfV2X7fqrVw/ZBYbvEpCUS0pKUu3e7ulRTmIpWGgZmjMgas56w4BlEnLWkOwkg88vYQ5IYmjD99+ghTQYR8zMBk/Ie4jESylLMKgVfPf5h4FSVedd84Ecy+UCA72EgPicgh9YNJllYZZIpqX+ngIOhITiIJpl4+HpCdv3lNozwollRdzh1cwfswkOajWn2hhFcq6hmOv7+sNRLcYnPQAbr+YnXUewvOwTFAKQi0y1GgZXfB34R7ukyRMky1sO8kGpPKOV2yU7lzk2p3+8c4+JtkUvhxdCSJmQZ/4/McNWgoUK/MA0CJqos9c2JhAS3zaftGPmx0h0tTKcDk7nk8PKsROQendpvLecINWYfbf36iFAcGv8Zb+8P7WbIIm2YlM6UQtBAdlAuD6/SOv2y9p103NJ4g+FKrT2Bu0o4rtKT2qEzphLhQUxKz3i4+UNHHcHeUQaYqMMzz+sPP6vHXfSMFXYwQFgG6Eb3nDpdE+GuX8RilYEknlR9DDky6Al3pBHq4Pn4P+IQ0SRyA+0CVpR/5EMwgTCXLliTvecFSo4AKBtd+EOQtJSOrAE0YQZEpKQ9SW567b2gqUgggUZgKb5ZRgL90MwoGzo8DOeTZNBLOghLFvIcvxUQswlKCpJBIIOf4j2zcl5KmXNd60rcKssog4yH7o6xq9sQ6Diaruz730pzT4jWhFkuGeiYkEzaAHm38xwVYZgeTOa6wNQOIV+Z8i7QNZdwBkC/SsOxj9TgPQgdf221WMMQwunLOkESHJA0Gv4gh7zipdT+X5r9IakFID5mMM02cGaiqpbKS4o4Lhx6RvHFVrs/D90IsPDF/f3qOILOmZfMpJBBmAhQLMyWJZo0imoYcjGEs+dOsPTkXL7/j6w5ObP589+0FxhKSpziHytz39IYgFyo0JOmQ/GUEAIoWJy36+3SFz6g8s9t9ekIciTy0MBX9oRg7EP5df220YkOWS/jrtvvEqzoCflIBJp6RJSCFqPMne+kIvMfTe6Qw/Ic6FmhstJKgWYDQ+US0oUAQrNhzrEe0gqQpQ0SrOPZ3Ds5Q4fuoFSA1jk0xj/YIqLUl5RxAuFl6ZARxD4xWoJ/tbOkEElyxoejbyjky3Oefh1/Y+sBIZRP7ny3r6sUK5OczXe2hoydnauekIKcief2h6VEk1dOpIgzOSTVzVxCD5Tk71J8NYVyglQBJSXA51hAhAUVJd1B1OMjyhU1Y0NdIxIBIdmJzyh4DADLpvxeHpKU1IJLOz1NISWjtSFKOY67/AIgqKkDrlzhwNHJDt67YQ1Ragzrv6wmIl/xDF/K4zGXKEQAtJVVnqMtf2+kFQGFKk84eh8mJBoHGtc+cSELqQasWeHsDXOnOERL0FXMGlISkAhhX05GMWoIlk6NXn0+kR5p/wTCP9p0j2Rw9Mm/6BdWEqI/s5LFv+A6xDm4ZhIKsLsxZ9XbfWPPfxYWTfoluR2aCW1zJ28c2mjvNm2kAVUg0pve2GrQF8qVyMJ1Ier0oIzQh26NqIzPE4B1bLnEgKxDH1Ge+jxmVOrcoRXyqoK86QiaICXypWHcjn4+JjHwmtWqHPtvrD8TJU9G96V+3rDUMtRIoKjxzEGAzrnrDgWdxnpDgXD8q+m/pGEPR2b8n8Pt4TCwJeG/pIFOsKlJKPPnvnD0A4ct7aCJBZmoNSYePlAJZumVf3+kGCk615Vhe0SElyGbQ9YwKSXLVfpDikhLkMf5gM4EypgapSc/Ax7I4b/8Al26f/wCFJ/8A8CK2cUApZnoSx3pHmv4iW3++4otZBCgiiQDTPSNKm1pmNOkBPza9M9/xCDMPlQv5jflA2apcDWvWMYt3qPmWz1jE945YsiecFlKaigB1bpn9IOGOQoTk333+RHI+HvGI+UA8mjDy5QXC6ThD00G9j1EQCGY1OXTL771MhGEginQZZQQJcE4mAzhEkHJla/eDd0JIDOMnHjDd13yPqYRTBKiTkM9+sMAxOEhy+/rB5LkHES3i+8/5ygooDyB0923kYI6Uk5As/lAJq6qSBrWvud6wwJWajFWnJ6/xBESicyamJ0qzBIBCQFkjLz/EZMIXkQVasXP7/vDFJ/xKBA+Uk0+3nHr/AIWWhXDNzEqQSbDIJOL/APbEa7fNrTYLstNoWsJSiVidRYP4x5cvC0m2221WkqxmaskHzf6iKud8mJ3bnlAV/OKv3nhKgct727ooULcx55/vswOlaAPo2kO+bESSWq+vKMSv5QG8z1JiTLUCKOGz8XhFpw0FMoZLBUGAp75ZQRQYKIJdmb2/G6wzEe8KYftsQZCAKmtciIeA/wBIIEsCEl8QHu/4hoLvRqPzhxGemY9zv3jNaUr+P3hBkOgFPXfkYasADNhXT33ygkp0llVpUHXL9okKSQOZOdN78YYU4mHzFLUPTY9YciUGwgU0G+kH7MjCDQK6ZB4LKSA3MkF/pB0kCWFLLA0HXpvnEVCzMUXFWZvOFnAdhML5IV9Kb8Y9h8LSbR/6ZuZkEj+xkfpP/wCmOscZ+MV+Gy2KXdslQQqcCVMSTy+8cUzBbWjnntoDNGGihkdR1/ERM0jUgDfrWGaU5RmuQPl13vPNFAcmoPHe6IlwnvV9/D6N5wuThOuRDV3TZhUKwHugAZht9PpnBXCkqb6ddN6w2T3Ay2NKh38YXHkkOzvUNv8AmMTLCSS/hXXf06QVGdciOXWHnMvR3hHhUtV+Rh5FS41r6/x6xnN+Vfv+fXrGM9DrzHifrClAqQXHU+O/fwWUfr94PhBLHCwDl+VP3gstPd1OHQGCJUUhkgAmjjXbe/lBUywVBRL+ZhxQEuQdYBOWUhSQAxHP29YBLc6s+Rf1iRNANmmpoHQQ2WdI90cN3ZKl8O3SgiqbFJBcV+QdY8YfEG8lXjxRa1PiCTgB6DnGrjusBoaVq29iBzUunxOkRSkBPNhqfCBlBS2JyGBBY72YRIFRoPSu/eFKS/dI897pDQCzJp4jeg+kKEqqO7TMYRCpSQDiZ9/iFqlJAyPPz/MNCjhAelAH9vtCoDmoZ9+cGUAMWHybPKHIb5hmdYeNaaeDQ7CmvL+fx7RgDORTz3lCilAPIb6xgbCS/mMs8/rDkpBQDqo8984ZMADgOxFavD5bpV6PEyUHychtDEhGRbIO0KoOlXgwgoxBJfN6CEphqadIjWmWUkFXykM79TD5SQkOKkitN7MIuSVjumqlJCa5OR+TH0UumwqlXVYUCXRNnlgMBokR86ryBn260zHS65yiTpWIISp2Y58t7rA5iNMgMn30gtjsM23rHZD/ABp+dYOXOnr7xFty5Znrl2UYZSAAmpILDQaRHrz9/eMHOor4N1jG7pDNXlSM1LjPQwqRic8vxCTRgSMu7WhbecIqSpFFhScQxBwxZvu30giQxNRXUb28Pw4VVahrTfT0hQXBp7w9AYEipNQNd7ekOepAPUHzz9nfr657N7UMYOQ9B479owZVcin0/DxiRXQnU889+UOXVQFe947yf1gqmwnMKarje/cqFgEAu7CJMshT5gQQIKk5io5dD+RBxR/o++kIoJwlwepy3pEecCSk6gn6/iHYAhKQHoAPCJ9w2I3lfd12LDi7e2yJbeKx5x9DgJMsYCkumhy/EfNqae/MANHp18vKAhSaklLgk+ECwLtM5EqSoKmLUEpDggu4q2gz8os7VbpFksqrLYUpmApIDZ5EEnVycuca9g/5EBIT8zAjf2hAEJfFhAPWm/yIbhJKiksHLV6woDB1UOVR4QoCSA2EA0Gm9N5KBhcu4IJBI1ffpGTJMxUtak4imUAVkB2B5nrWGyJblsOIHkPxB0ynqSG54oImWSflxVFRkYf2WYJKvL1/MNwp/UtPMl98ozCliO0SDyxZekKyQaqSX0cRjJz7o6k73yhQjEpQD0zIyPOM7NnLjq8MUCpacLqAOlYnJkYkkghgf9zeftvXEyClQDgqZhXTbQWzjCvCouBmTQeH1g8hQOELITTMlmHPfSD4Ut86A/8AyDcqdK+xjMCVfKsOWPzCld+kCXLISGUMnIfIVjDgwD5XBYd79+YjcvhJYP8AUviZwrZaEf34mOz0CVH/APGPd65CCtRXIKlPUgmpj5q24NbJ7Ucqf/3GI0xSkpmYSQyAQxyNYmXaP+rtn/GRMbpWK8jtFze07z4c68oYZaCiqE5J0iGwKEOHoD7j8n1h4AxpDBn/ADGIHdSdSgH2f6xIMtAE4hKQU4mpllD0gEBwDX7mItsqqUk5Kl94c+8YLZ5aDISopS+JQdtKxKT/APUGmH7wktKVSkKIBUTUkVzVA0gBJAAAAp/7TDlEgzWJDO3SsK5xs9MGX/2wiiQsgEgYiG82h8kkpLk6feEWkEz3ALAaQ2UhOMd0enSGpSFqSVAKOPMjxi3s+TaYfvB5KQZiHA+YDLR4LaJMsGY0tIaYoDuigcxEwhM1kgAOMh0MSJfyEaMPqYecvFVfeGLAYU5feBoqFPWsz6mOh/AdCVfFzhsKSCBMnKYjXsl1j3OczH//2Q==" alt="Einar Gerhardsen 1945" style="width:100%; max-width: 300px; display: block; margin: 0 auto 12px; border: 1px solid var(--border);">
+        <p>Portrett av Einar Gerhardsen fra 1945, året han ble statsminister. Gerhardsen var veiarbeider og partimann som hadde sittet i konsentrasjonsleir under krigen, først på Grini, deretter i Sachsenhausen. Han ble statsminister uten å ha vært stortingsrepresentant, og satt i til sammen 17 år. Arbeiderpartiet hadde rent flertall på Stortinget fra 1945 til 1961.</p>
+        <p><strong>Kildekritikk:</strong> Offisielt portrettfoto tatt av Henriksen & Steen. Bildet fremstiller Gerhardsen som seriøs og tillitvekkende, i tråd med rollen som nasjonsbygger. Det sier mest om hvordan han ønsket å bli oppfattet, ikke nødvendigvis hvem han var privat.</p>
+      </div>
+      <div class="source-meta">Henriksen & Steen / Nasjonalbiblioteket · Wikimedia Commons (fritt)</div>
+    </div>
+
+    <!-- KILDE 6 -->
+    <div class="source-card wide">
+      <div class="source-header">
+        <span class="source-number">6</span>
+        <span class="source-title">Gerhardsen om gjenreisningsårene (NRK, 1962)</span>
+        <span class="source-type">TV-intervju / Beretning</span>
+      </div>
+      <div class="source-body" style="display: flex; gap: 24px; flex-wrap: wrap;">
+        <div style="flex: 1; min-width: 260px;">
+          <span class="label label-politikk">Politikk</span> <span class="label label-okonomi">Økonomi</span>
+          <p>I dette NRK-intervjuet fra 1962 forteller statsminister Gerhardsen selv om prioriteringene i gjenreisningsårene. Han forklarer filosofien bak den stramme linjen: «Ingen får kake før alle har fått brød.» Gerhardsen beskriver hvordan regjeringen styrte økonomien med rasjonering og statlig kontroll for å sikre rettferdig fordeling, og hvordan gjenreisningen av Nord-Norge var den første og viktigste oppgaven.</p>
+          <p><strong>Kildekritikk:</strong> Intervjuet er en beretning der Gerhardsen ser tilbake 15 år senere. Han har en klar interesse av å fremstille seg selv og Arbeiderpartiet i et godt lys. Likevel er det verdifullt som primærkilde fordi vi hører hans egne ord og begrunnelser, noe som gir innsikt i hvordan han tenkte og kommuniserte.</p>
+        </div>
+        <div style="flex: 0 0 auto; display: flex; align-items: center;">
+          <iframe width="380" height="214" src="https://www.youtube.com/embed/rocERcLYH9s?autoplay=1&mute=1" title="Intervju med Einar Gerhardsen (1962)" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen style="border: 1px solid var(--border);"></iframe>
+        </div>
+      </div>
+      <div class="source-meta">YouTube: youtube.com/watch?v=rocERcLYH9s · Også tilgjengelig på norgeshistorie.no</div>
+    </div>
+
+  </div>
+
+  <!-- REFLEKSJON -->
+  <div class="reflection">
+    <h3>Brudd eller kontinuitet?</h3>
+    <p>Tiåret 1945–1955 er preget av begge deler. Det tydeligste bruddet er overgangen fra krig til fred og demokrati, og fra nøytralitetspolitikk til NATO-medlemskap. Velferdsstaten representerer også et brudd: staten tok et helt nytt ansvar for innbyggernes trygghet gjennom trygdeordninger og boligbygging. Samtidig ser vi kontinuitet i fornorskingspolitikken overfor samene, som fortsatte uforandret etter krigen, og i Arbeiderpartiets maktposisjon som strakk seg fra 1935 og langt inn i etterkrigstiden. Teknologisk var perioden starten på en forbrukerrevolusjon som skulle akselerere i tiårene som fulgte.</p>
+  </div>
+
+  <div class="footer">
+    VG3 Historie &middot; Veggavis &middot; Kilder hentet fra norgeshistorie.no, snl.no og virksommeord.no
+  </div>
+
+</div>
+</body>
+</html>
